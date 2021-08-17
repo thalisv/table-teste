@@ -1,0 +1,31 @@
+<table (click)="clickItem($event)" mat-table [dataSource]="tableContent" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container  matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> nome </th>
+      <td  mat-cell *matCellDef='let data' >{{data.nome}}</td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef> idade </th>
+      <td  contenteditable="true" mat-cell *matCellDef="let element">{{element.idade}}</td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="cidade">
+      <th mat-header-cell *matHeaderCellDef> cidade </th>
+      <td mat-cell *matCellDef="let element"> {{element.cidade}} </td>
+    </ng-container>
+  
+    <!-- 
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+    -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
